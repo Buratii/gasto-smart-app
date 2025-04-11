@@ -1,9 +1,7 @@
-export interface ICategory {
+import { Document } from "mongoose";
+
+export interface ICategory extends Document {
   name: string;
   description: string;
   createdAt: Date;
-}
-
-export interface IItemDocument extends ICategory, Document {
-  _id: string;
 }
