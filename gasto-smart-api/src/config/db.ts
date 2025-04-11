@@ -1,18 +1,17 @@
 import mongoose from "mongoose";
 
-const connectDB = async (): Promise<void> => {
+const connectDB = async () => {
   try {
-    const mongoUri = process.env.MONGO_URI;
+    const mongoUrl = process.env.MONGO_URL;
 
-    if (!mongoUri) {
+    if (!mongoUrl) {
       throw new Error("MongoDB connection string is not defined");
     }
 
-    const conn = await mongoose.connect(mongoUri);
+    const conn = await mongoose.connect(mongoUrl);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error: any) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1);
+    console.error(`MongoDB Error: ${error.message}`);
   }
 };
 

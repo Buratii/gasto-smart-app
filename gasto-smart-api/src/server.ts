@@ -1,26 +1,21 @@
-import express, { Application, Request, Response } from "express";
-import dotenv from "dotenv";
-import connectDB from "./config/db";
-import itemRoutes from "./routes/categories";
+import "dotenv/config";
 
-// Load env vars
-dotenv.config();
+import express from "express";
+import connectDB from "./config/db";
+import categoryRoutes from "./routes/categories";
+import expenseRoutes from "./routes/expenses";
 
 // Connect to database
 connectDB();
 
-const app: Application = express();
+const app = express();
 
 // Body parser
 app.use(express.json());
 
 // Routes
-app.use("/api/items", itemRoutes);
-
-// Basic route
-app.get("/", (req: Request, res: Response) => {
-  res.send("API is running...");
-});
+app.use("/category", categoryRoutes);
+app.use("/expense", expenseRoutes);
 
 const PORT = process.env.PORT || 3000;
 
