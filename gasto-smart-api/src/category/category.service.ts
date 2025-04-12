@@ -1,3 +1,4 @@
+import Expense from "../models/Expense";
 import Category from "../models/Category";
 import { Request, Response } from "express";
 
@@ -67,6 +68,17 @@ class CategoryService {
 
       if (!deletedCategory) {
         res.status(404).json({ message: "Category not found" });
+        return;
+      }
+
+      const expense = await Expense.findOne({ category: id });
+
+      if (expense) {
+        res.status(400).json({
+          message:
+            "Cannot delete category because it is associated with an expense",
+        });
+        return;
       }
 
       res.status(200).json({ message: "Category deleted successfully" });
