@@ -8,6 +8,11 @@ const CategorySchema = new Schema<ICategory>({
     unique: true,
     trim: true,
   },
+  icon: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

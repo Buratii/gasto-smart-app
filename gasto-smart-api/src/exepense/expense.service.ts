@@ -6,7 +6,9 @@ class ExpenseService {
 
   async getExpenses(req: Request, res: Response): Promise<void> {
     try {
-      const items = await Expense.find().populate("category");
+      const items = await Expense.find()
+        .populate("category")
+        .sort([["createdAt", -1]]);
       res.status(200).json(items);
     } catch (error) {
       this.handleError(res, error);

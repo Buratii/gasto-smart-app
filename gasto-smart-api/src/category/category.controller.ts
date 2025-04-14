@@ -3,7 +3,6 @@ import CategoryService from "./category.service";
 
 const categoryService = new CategoryService();
 
-// Get all items
 export const getCategories = async (
   req: Request,
   res: Response
@@ -11,7 +10,6 @@ export const getCategories = async (
   await categoryService.getCategories(req, res);
 };
 
-// Get a single item
 export const getCategory = async (
   req: Request,
   res: Response
@@ -19,7 +17,6 @@ export const getCategory = async (
   await categoryService.getCategory(req, res);
 };
 
-// Create an item
 export const createCategory = async (
   req: Request,
   res: Response
@@ -27,7 +24,6 @@ export const createCategory = async (
   await categoryService.createCategory(req, res);
 };
 
-// Update an item
 export const updateCategory = async (
   req: Request,
   res: Response
@@ -35,7 +31,6 @@ export const updateCategory = async (
   await categoryService.updateCategory(req, res);
 };
 
-// Delete an item
 export const deleteCategory = async (
   req: Request,
   res: Response
