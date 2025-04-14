@@ -127,9 +127,9 @@ export default function Index() {
             />
           )}
           ListEmptyComponent={() => (
-            <Text>
-              Ninguém chegou ainda? {"\n"} Adicione participantes a sua lista de
-              presenca
+            <Text style={{ textAlign: "center", marginTop: 32 }}>
+              Você ainda não tem gastos cadastrados.{"\n"}
+              Adicione um novo gasto clicando no botão abaixo.
             </Text>
           )}
         />
